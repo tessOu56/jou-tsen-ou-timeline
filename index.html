@@ -135,4 +135,72 @@
     render();
   });
   const pt = document.getElementById("priv-toggle");
-  if(pt) pt.addEve
+  if(pt) pt.addEventListener("change",()=>{ showPrivate=pt.checked; render(); });
+
+  const sEl = document.getElementById("search");
+  sEl.addEventListener("input",()=>{ query=sEl.value.trim().toLowerCase(); render(); });
+
+  document.getElementById("export-btn").addEventListener("click",()=>{
+    const list = allRecords().filter(hit);
+    const out = { person: {name:person.name, field:person.field, metrics:person.metrics},
+                  exportedAt:new Date().toISOString(),
+                  note: list.some(r=>r._private)?"含私有紀錄，請勿對外散布":"僅含公開紀錄",
+                  records:list };
+    const a=document.createElement("a");
+    a.href=URL.createObjectURL(new Blob([JSON.stringify(out,null,2)],{type:"application/json"}));
+    a.download="jou-tsen-ou-records-export.json"; a.click(); URL.revokeObjectURL(a.href);
+  });
+
+  function hit(r){
+    if(activeCat!=="all" && r.category!==activeCat) return false;
+    if(activeState==="verified" && !r.verified) return false;
+    if(activeState==="unverified" && r.verified) return false;
+    if(!query) return true;
+    const hay=[r.title,r.detail,r.venue,(r.tags||[]).join(" "),r.displayDate].join(" ").toLowerCase();
+    return query.split(/\s+/).every(t=>hay.includes(t));
+  }
+  function esc(s){return String(s??"").replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));}
+  function hl(s){
+    let out=esc(s);
+    if(query) query.split(/\s+/).filter(Boolean).forEach(t=>{
+      const re=new RegExp("("+t.replace(/[.*+?^${}()|[\]\\]/g,"\\$&")+")","gi");
+      out=out.replace(re,"<mark>$1</mark>");
+    });
+    return out;
+  }
+
+  function render(){
+    const list = allRecords().filter(hit).sort((a,b)=>b.date.localeCompare(a.date));
+    const nPriv = list.filter(r=>r._private).length;
+    document.getElementById("count").textContent =
+      `共 ${list.length} 筆` + (PRIV?`（公開 ${list.length-nPriv}・私有 ${nPriv}）`:"");
+    const tl = document.getElementById("timeline");
+    if(!list.length){ tl.innerHTML=`<div class="empty">沒有符合的紀錄</div>`; return; }
+    let html="", curYear="";
+    for(const r of list){
+      const y=r.date.slice(0,4);
+      if(y!==curYear){ curYear=y; html+=`<div class="year">${y}</div>`; }
+      html+=`<div class="card${r._private?" private":""}">
+        <div class="top">
+          <span class="badge b-${r.category}">${CAT_NAME[r.category]||esc(r.category)}</span>
+          <span class="date">${esc(r.displayDate)}</span>
+          ${r.verified?"":`<span class="flag unverified">待確認</span>`}
+          ${r._private?`<span class="flag privflag">私有</span>`:""}
+        </div>
+        <h3>${hl(r.title)}</h3>
+        ${r.venue?`<div class="venue">${hl(r.venue)}</div>`:""}
+        ${r.detail?`<div class="detail">${hl(r.detail)}</div>`:""}
+        ${(r.tags&&r.tags.length)?`<div class="tags">${r.tags.map(t=>`<span class="tag" data-t="${esc(t)}">${hl(t)}</span>`).join("")}</div>`:""}
+        ${r.source?`<a class="src" href="${esc(r.source)}" target="_blank" rel="noopener">來源 ↗</a>`:""}
+      </div>`;
+    }
+    tl.innerHTML=html;
+    tl.querySelectorAll(".tag").forEach(t=>t.addEventListener("click",()=>{
+      sEl.value=t.dataset.t; query=t.dataset.t.toLowerCase(); render();
+    }));
+  }
+  render();
+})();
+</script>
+</body>
+</html>
