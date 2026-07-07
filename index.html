@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Jou-Tsen Ou｜Academic Record</title>
+<style>
+  :root{
+    --bg:#fafaf8; --card:#ffffff; --ink:#22211e; --muted:#6f6a60;
+    --line:#e2ddd2; --accent:#37506b; --accent-soft:#e8edf3;
+    --pub:#37506b; --pre:#8a6d3b; --ms:#7a4a5c; --edu:#4a6f5d; --career:#5c527a;
+    --warn-bg:#f7ead9; --warn-ink:#a05a2c; --priv-bg:#efe3ee; --priv-ink:#7a4a5c;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{font-family:"Noto Sans TC","Segoe UI",system-ui,sans-serif;background:var(--bg);color:var(--ink);line-height:1.6}
+  .wrap{max-width:900px;margin:0 auto;padding:32px 20px 80px}
+  header{border-bottom:2px solid var(--ink);padding-bottom:18px}
+  header h1{font-size:1.65rem;letter-spacing:.02em;font-family:Georgia,"Noto Serif TC",serif}
+  header .sub{color:var(--muted);margin-top:4px;font-size:.95rem}
+  .metrics{display:flex;gap:12px;flex-wrap:wrap;margin:14px 0 10px}
+  .metric{background:var(--card);border:1px solid var(--line);border-radius:8px;padding:7px 14px;font-size:.86rem}
+  .metric b{font-size:1.08rem;margin-right:4px;color:var(--accent)}
+  .profiles{display:flex;gap:12px;flex-wrap:wrap}
+  .profiles a{color:var(--accent);font-size:.84rem;text-decoration:none;border-bottom:1px dotted var(--accent)}
+  .controls{position:sticky;top:0;background:var(--bg);padding:12px 0;z-index:5;border-bottom:1px solid var(--line)}
+  .searchrow{display:flex;gap:8px}
+  #search{flex:1;padding:10px 14px;border:1px solid var(--line);border-radius:8px;font-size:1rem;background:var(--card)}
+  #search:focus{outline:2px solid var(--accent-soft);border-color:var(--accent)}
+  .btn{border:1px solid var(--line);background:var(--card);border-radius:8px;padding:0 14px;font-size:.84rem;cursor:pointer;color:var(--ink);white-space:nowrap}
+  .btn:hover{border-color:var(--accent);color:var(--accent)}
+  .filters{display:flex;gap:8px;flex-wrap:wrap;margin-top:10px;align-items:center}
+  .flabel{font-size:.78rem;color:var(--muted);margin-right:2px}
+  .chip{border:1px solid var(--line);background:var(--card);border-radius:999px;padding:3px 13px;font-size:.83rem;cursor:pointer;color:var(--muted)}
+  .chip.active{background:var(--accent);border-color:var(--accent);color:#fff}
+  .sep{width:1px;height:18px;background:var(--line);margin:0 4px}
+  .toggle{display:flex;align-items:center;gap:6px;font-size:.83rem;color:var(--muted);cursor:pointer;user-select:none}
+  .count{color:var(--muted);font-size:.8rem;margin-top:8px}
+  .timeline{margin-top:24px;position:relative;padding-left:24px}
+  .timeline::before{content:"";position:absolute;left:6px;top:0;bottom:0;width:2px;background:var(--line)}
+  .year{margin:28px 0 10px;font-weight:700;font-size:1.12rem;position:relative;font-family:Georgia,"Noto Serif TC",serif}
+  .year::before{content:"";position:absolute;left:-24px;top:9px;width:14px;height:14px;border-radius:50%;background:var(--accent);border:3px solid var(--bg)}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:14px 16px;margin-bottom:12px}
+  .card.private{border-left:4px solid var(--priv-ink)}
+  .card .top{display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin-bottom:6px}
+  .badge{font-size:.7rem;color:#fff;border-radius:5px;padding:2px 8px;letter-spacing:.05em}
+  .b-publication{background:var(--pub)} .b-preprint{background:var(--pre)}
+  .b-milestone{background:var(--ms)} .b-education{background:var(--edu)} .b-career{background:var(--career)}
+  .date{color:var(--muted);font-size:.78rem}
+  .flag{font-size:.7rem;border-radius:5px;padding:2px 8px}
+  .unverified{color:var(--warn-ink);background:var(--warn-bg)}
+  .privflag{color:var(--priv-ink);background:var(--priv-bg)}
+  .card h3{font-size:.98rem;line-height:1.45}
+  .card .venue{color:var(--accent);font-size:.84rem;margin-top:2px;font-style:italic}
+  .card .detail{color:var(--muted);font-size:.87rem;margin-top:6px}
+  .tags{display:flex;gap:6px;flex-wrap:wrap;margin-top:8px}
+  .tag{font-size:.74rem;background:var(--accent-soft);color:var(--accent);border-radius:5px;padding:2px 8px;cursor:pointer}
+  .card a.src{font-size:.78rem;color:var(--accent);text-decoration:none;display:inline-block;margin-top:8px;border-bottom:1px dotted var(--accent)}
+  .empty{text-align:center;color:var(--muted);padding:48px 0}
+  mark{background:#f3e2b8;border-radius:3px;padding:0 2px}
+  footer{margin-top:40px;color:var(--muted);font-size:.76rem;border-top:1px solid var(--line);padding-top:14px;line-height:1.8}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <h1 id="p-name"></h1>
+    <div class="sub" id="p-field"></div>
+    <div class="metrics" id="p-metrics"></div>
+    <div class="profiles" id="p-profiles"></div>
+  </header>
+
+  <div class="controls">
+    <div class="searchrow">
+      <input id="search" type="search" placeholder="搜尋標題、作者、期刊、標籤…（例：稀土、第一作者、JACS）">
+      <button class="btn" id="export-btn" title="匯出目前篩選結果為 JSON">匯出 JSON</button>
+    </div>
+    <div class="filters" id="filters"></div>
+    <div class="count" id="count"></div>
+  </div>
+
+  <div class="timeline" id="timeline"></div>
+
+  <footer>
+    每筆紀錄均標註公開來源；「待確認」表示尚未有公開來源佐證。<br>
+    私有紀錄僅存在於本機 <code>data/records.private.js</code>（不進版本控制、不對外發布）；公開部署僅含 <code>data/records.js</code>。
+  </footer>
+</div>
+
+<script src="data/records.js"></script>
+<script src="data/records.private.js" onerror="void 0"></script>
+<script>
+(function(){
+  const PUB = window.TIMELINE_DATA;
+  const PRIV = window.TIMELINE_PRIVATE || null;
+  const CATS = [
+    ["all","全部"],["publication","期刊論文"],["preprint","預印本"],
+    ["milestone","里程碑"],["education","學歷"],["career","經歷"]
+  ];
+  const STATES = [["all","全部"],["verified","已驗證"],["unverified","待確認"]];
+  const CAT_NAME = Object.fromEntries(CATS);
+  let activeCat="all", activeState="all", query="", showPrivate=true;
+
+  function allRecords(){
+    const pub = PUB.records.map(r=>({...r,_private:false}));
+    if(!PRIV || !showPrivate) return pub;
+    return pub.concat((PRIV.records||[]).map(r=>({...r,_private:true})));
+  }
+
+  // header
+  const person = {...PUB.person, ...(PRIV&&PRIV.personPatch?PRIV.personPatch:{})};
+  document.getElementById("p-name").textContent = person.name;
+  document.getElementById("p-field").textContent = person.field;
+  const m = person.metrics;
+  document.getElementById("p-metrics").innerHTML =
+    `<div class="metric"><b>${m.papers}</b>篇論文</div>
+     <div class="metric"><b>${m.citations}</b>次引用</div>
+     <div class="metric"><b>${m.hIndex}</b>h-index</div>
+     <div class="metric">統計：${m.asOf}</div>`;
+  document.getElementById("p-profiles").innerHTML =
+    person.profiles.map(p=>`<a href="${p.url}" target="_blank" rel="noopener">${p.label} ↗</a>`).join("");
+
+  // filters
+  const fEl = document.getElementById("filters");
+  let fh = `<span class="flabel">類別</span>` +
+    CATS.map(([k,v])=>`<button class="chip${k==='all'?' active':''}" data-kind="cat" data-v="${k}">${v}</button>`).join("") +
+    `<span class="sep"></span><span class="flabel">狀態</span>` +
+    STATES.map(([k,v])=>`<button class="chip${k==='all'?' active':''}" data-kind="state" data-v="${k}">${v}</button>`).join("");
+  if(PRIV) fh += `<span class="sep"></span><label class="toggle"><input type="checkbox" id="priv-toggle" checked> 顯示私有紀錄</label>`;
+  fEl.innerHTML = fh;
+  fEl.addEventListener("click",e=>{
+    const b = e.target.closest(".chip"); if(!b) return;
+    const kind=b.dataset.kind, v=b.dataset.v;
+    if(kind==="cat") activeCat=v; else activeState=v;
+    fEl.querySelectorAll(`.chip[data-kind="${kind}"]`).forEach(c=>c.classList.toggle("active",c===b));
+    render();
+  });
+  const pt = document.getElementById("priv-toggle");
+  if(pt) pt.addEve

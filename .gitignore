@@ -1,0 +1,10 @@
+# 私有資料：僅存本機，永不推送
+data/records.private.js
+
+# 匯出檔
+*.export.json
+jou-tsen-ou-records-export.json
+
+# 系統
+.DS_Store
+Thumbs.db
