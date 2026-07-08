@@ -1,0 +1,5 @@
+{
+  "_comment": "私有資料範本 —— 複製為 records.private.json 後填寫（已被 .gitignore 排除，不會進入版本控制）。用途：存放不對外公開的紀錄（如尚未公開的職位、個人聯絡脈絡、未發表成果、家人補充的私人細節）。格式與 records.json 的 records 相同，另可用 personPatch 覆寫個人欄位（如補上日本機構）。",
+  "personPatch": {},
+  "records": []
+}

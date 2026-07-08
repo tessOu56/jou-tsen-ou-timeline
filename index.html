@@ -5,24 +5,55 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Jou-Tsen Ou｜Academic Record</title>
 <style>
+  /* 色盤：書齋 Shosai（圖書館木質調）— SSOT: explore-design-sdk packages/tokens/applications/joutsen.map.json
+     類別徽章色：木質 categorical（胡桃／黃銅／桃花心木／館綠／煙燻橡木，白字處皆 AA 以上） */
   :root{
-    --bg:#fafaf8; --card:#ffffff; --ink:#22211e; --muted:#6f6a60;
-    --line:#e2ddd2; --accent:#37506b; --accent-soft:#e8edf3;
-    --pub:#37506b; --pre:#8a6d3b; --ms:#7a4a5c; --edu:#4a6f5d; --career:#5c527a;
-    --warn-bg:#f7ead9; --warn-ink:#a05a2c; --priv-bg:#efe3ee; --priv-ink:#7a4a5c;
+    --bg:#f5efe3; --card:#fdfaf2; --ink:#2a211a; --muted:#6b5d4d;
+    --line:#e0d5bd; --accent:#6d4526; --accent-soft:#efe5d2; --highlight:#d9c9a8;
+    --pub:#5b4636; --pre:#6e551c; --ms:#7b3428; --edu:#44583f; --career:#575047;
+    --warn-bg:#f1e6cd; --warn-ink:#7a5410; --priv-bg:#ece0d3; --priv-ink:#6d4526;
   }
   *{box-sizing:border-box;margin:0;padding:0}
-  body{font-family:"Noto Sans TC","Segoe UI",system-ui,sans-serif;background:var(--bg);color:var(--ink);line-height:1.6}
+  body{font-family:Georgia,"Noto Serif TC","Times New Roman",serif;background:var(--bg);color:var(--ink);line-height:1.7}
   .wrap{max-width:900px;margin:0 auto;padding:32px 20px 80px}
-  header{border-bottom:2px solid var(--ink);padding-bottom:18px}
-  header h1{font-size:1.65rem;letter-spacing:.02em;font-family:Georgia,"Noto Serif TC",serif}
-  header .sub{color:var(--muted);margin-top:4px;font-size:.95rem}
+  a{color:var(--accent)}
+  header.site{border-bottom:4px double var(--ink);padding-bottom:18px}
+  header.site h1{font-size:1.65rem;letter-spacing:.02em}
+  header.site .sub{color:var(--muted);margin-top:4px;font-size:.95rem}
   .metrics{display:flex;gap:12px;flex-wrap:wrap;margin:14px 0 10px}
   .metric{background:var(--card);border:1px solid var(--line);border-radius:8px;padding:7px 14px;font-size:.86rem}
   .metric b{font-size:1.08rem;margin-right:4px;color:var(--accent)}
   .profiles{display:flex;gap:12px;flex-wrap:wrap}
-  .profiles a{color:var(--accent);font-size:.84rem;text-decoration:none;border-bottom:1px dotted var(--accent)}
-  .controls{position:sticky;top:0;background:var(--bg);padding:12px 0;z-index:5;border-bottom:1px solid var(--line)}
+  .profiles a{font-size:.84rem;text-decoration:none;border-bottom:1px dotted var(--accent)}
+  /* 導覽列 */
+  .nav{position:sticky;top:0;background:var(--bg);z-index:6;border-bottom:1px solid var(--line);
+       display:flex;gap:4px;padding:8px 0;font-family:"Noto Sans TC","Segoe UI",sans-serif}
+  .nav a{text-decoration:none;font-size:.88rem;color:var(--muted);padding:5px 14px;border-radius:999px}
+  .nav a:hover{color:var(--accent);background:var(--accent-soft)}
+  /* 區塊標題 */
+  section{margin-top:44px}
+  .sec-h{display:flex;align-items:baseline;gap:10px;border-bottom:2px solid var(--ink);padding-bottom:8px;margin-bottom:18px}
+  .sec-h h2{font-size:1.3rem;letter-spacing:.03em}
+  .sec-h .en{color:var(--muted);font-size:.8rem;font-style:italic}
+  /* 生平 */
+  .bio-block{background:var(--card);border:1px solid var(--line);border-left:4px solid var(--accent);border-radius:8px;padding:16px 20px;margin-bottom:14px}
+  .bio-block h3{font-size:1.02rem;margin-bottom:6px}
+  .bio-block p{font-size:.92rem}
+  .bio-note{display:inline-block;margin-top:8px;font-size:.74rem;color:var(--warn-ink);background:var(--warn-bg);border-radius:5px;padding:2px 10px}
+  /* 研究主題 */
+  .theme{background:var(--card);border:1px solid var(--line);border-radius:8px;padding:18px 20px;margin-bottom:16px;box-shadow:0 1px 3px rgba(59,42,24,.08)}
+  .theme h3{font-size:1.05rem}
+  .theme .period{color:var(--muted);font-size:.8rem;margin:2px 0 8px;font-family:"Noto Sans TC","Segoe UI",sans-serif}
+  .theme p{font-size:.9rem}
+  .apps{display:flex;gap:6px;flex-wrap:wrap;margin-top:10px}
+  .app{font-size:.76rem;background:var(--accent-soft);color:var(--accent);border-radius:999px;padding:3px 12px}
+  .theme-pubs{margin-top:12px;border-top:1px dashed var(--line);padding-top:10px}
+  .theme-pubs .tp-label{font-size:.74rem;color:var(--muted);font-family:"Noto Sans TC","Segoe UI",sans-serif;letter-spacing:.06em}
+  .theme-pubs a{display:block;font-size:.85rem;text-decoration:none;margin-top:6px;border-bottom:none}
+  .theme-pubs a:hover{text-decoration:underline}
+  .theme-pubs .yr{color:var(--muted);font-size:.76rem;margin-right:6px}
+  /* 控制列 */
+  .controls{position:sticky;top:41px;background:var(--bg);padding:12px 0;z-index:5;border-bottom:1px solid var(--line)}
   .searchrow{display:flex;gap:8px}
   #search{flex:1;padding:10px 14px;border:1px solid var(--line);border-radius:8px;font-size:1rem;background:var(--card)}
   #search:focus{outline:2px solid var(--accent-soft);border-color:var(--accent)}
@@ -35,69 +66,137 @@
   .sep{width:1px;height:18px;background:var(--line);margin:0 4px}
   .toggle{display:flex;align-items:center;gap:6px;font-size:.83rem;color:var(--muted);cursor:pointer;user-select:none}
   .count{color:var(--muted);font-size:.8rem;margin-top:8px}
+  /* 時間軸 */
   .timeline{margin-top:24px;position:relative;padding-left:24px}
   .timeline::before{content:"";position:absolute;left:6px;top:0;bottom:0;width:2px;background:var(--line)}
-  .year{margin:28px 0 10px;font-weight:700;font-size:1.12rem;position:relative;font-family:Georgia,"Noto Serif TC",serif}
+  .year{margin:28px 0 10px;font-weight:700;font-size:1.12rem;position:relative}
   .year::before{content:"";position:absolute;left:-24px;top:9px;width:14px;height:14px;border-radius:50%;background:var(--accent);border:3px solid var(--bg)}
-  .card{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:14px 16px;margin-bottom:12px}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:8px;padding:14px 16px;margin-bottom:12px;box-shadow:0 1px 3px rgba(59,42,24,.08)}
   .card.private{border-left:4px solid var(--priv-ink)}
   .card .top{display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin-bottom:6px}
-  .badge{font-size:.7rem;color:#fff;border-radius:5px;padding:2px 8px;letter-spacing:.05em}
+  .badge{font-size:.7rem;color:#fff;border-radius:4px;padding:2px 8px;letter-spacing:.08em;font-family:"Noto Sans TC","Segoe UI",sans-serif}
   .b-publication{background:var(--pub)} .b-preprint{background:var(--pre)}
   .b-milestone{background:var(--ms)} .b-education{background:var(--edu)} .b-career{background:var(--career)}
   .date{color:var(--muted);font-size:.78rem}
   .flag{font-size:.7rem;border-radius:5px;padding:2px 8px}
   .unverified{color:var(--warn-ink);background:var(--warn-bg)}
   .privflag{color:var(--priv-ink);background:var(--priv-bg)}
+  .cite-inline{font-size:.72rem;color:var(--muted);border:1px solid var(--line);border-radius:5px;padding:1px 8px}
   .card h3{font-size:.98rem;line-height:1.45}
+  .card h3 a{text-decoration:none;color:inherit}
+  .card h3 a:hover{color:var(--accent);text-decoration:underline}
   .card .venue{color:var(--accent);font-size:.84rem;margin-top:2px;font-style:italic}
   .card .detail{color:var(--muted);font-size:.87rem;margin-top:6px}
   .tags{display:flex;gap:6px;flex-wrap:wrap;margin-top:8px}
   .tag{font-size:.74rem;background:var(--accent-soft);color:var(--accent);border-radius:5px;padding:2px 8px;cursor:pointer}
-  .card a.src{font-size:.78rem;color:var(--accent);text-decoration:none;display:inline-block;margin-top:8px;border-bottom:1px dotted var(--accent)}
+  .card .links{margin-top:8px;display:flex;gap:14px;flex-wrap:wrap}
+  .card .links a{font-size:.78rem;text-decoration:none;border-bottom:1px dotted var(--accent)}
   .empty{text-align:center;color:var(--muted);padding:48px 0}
-  mark{background:#f3e2b8;border-radius:3px;padding:0 2px}
+  mark{background:#ecd9a8;border-radius:3px;padding:0 2px}
   footer{margin-top:40px;color:var(--muted);font-size:.76rem;border-top:1px solid var(--line);padding-top:14px;line-height:1.8}
+  /* 詳頁 */
+  #detail{display:none}
+  .d-back{display:inline-block;font-size:.84rem;text-decoration:none;margin-bottom:18px;border-bottom:1px dotted var(--accent);font-family:"Noto Sans TC","Segoe UI",sans-serif}
+  article.paper{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:26px 28px;box-shadow:0 1px 4px rgba(59,42,24,.1)}
+  article.paper .top{display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin-bottom:10px}
+  article.paper h2{font-size:1.32rem;line-height:1.5}
+  article.paper .venue{color:var(--accent);font-style:italic;margin-top:6px}
+  .d-metrics{display:flex;gap:10px;flex-wrap:wrap;margin:14px 0}
+  .d-metric{border:1px solid var(--line);background:var(--bg);border-radius:8px;padding:6px 14px;font-size:.82rem;color:var(--muted)}
+  .d-metric b{color:var(--accent);font-size:1rem;margin-right:4px}
+  .d-sec{margin-top:20px}
+  .d-sec h4{font-size:.82rem;letter-spacing:.12em;color:var(--muted);font-family:"Noto Sans TC","Segoe UI",sans-serif;
+            border-bottom:1px solid var(--line);padding-bottom:5px;margin-bottom:10px}
+  .authors{font-size:.9rem;line-height:2}
+  .authors .self{font-weight:700;background:var(--highlight);border-radius:4px;padding:1px 6px}
+  .authors .anote{color:var(--muted);font-size:.8rem;margin-left:8px}
+  .abstract{font-size:.92rem;line-height:1.85;text-align:justify;hyphens:auto}
+  .src-note{color:var(--muted);font-size:.76rem;margin-top:8px;font-style:italic}
+  .d-sec p.zh{font-size:.92rem}
+  .d-links{display:flex;gap:12px;flex-wrap:wrap;margin-top:6px;align-items:center}
+  .d-links a{font-size:.84rem;text-decoration:none;border-bottom:1px dotted var(--accent)}
+  pre.bibtex{display:none;background:var(--bg);border:1px solid var(--line);border-radius:8px;padding:12px 14px;
+             font-size:.76rem;font-family:Consolas,Menlo,monospace;overflow-x:auto;margin-top:10px;line-height:1.6;white-space:pre-wrap}
+  .pnav{display:flex;justify-content:space-between;gap:12px;margin-top:22px;font-size:.84rem;font-family:"Noto Sans TC","Segoe UI",sans-serif}
+  .pnav a{text-decoration:none;border-bottom:1px dotted var(--accent);max-width:46%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+  @media (max-width:600px){ article.paper{padding:20px 16px} }
 </style>
 </head>
 <body>
 <div class="wrap">
-  <header>
+  <header class="site">
     <h1 id="p-name"></h1>
     <div class="sub" id="p-field"></div>
     <div class="metrics" id="p-metrics"></div>
     <div class="profiles" id="p-profiles"></div>
   </header>
 
-  <div class="controls">
-    <div class="searchrow">
-      <input id="search" type="search" placeholder="搜尋標題、作者、期刊、標籤…（例：稀土、第一作者、JACS）">
-      <button class="btn" id="export-btn" title="匯出目前篩選結果為 JSON">匯出 JSON</button>
-    </div>
-    <div class="filters" id="filters"></div>
-    <div class="count" id="count"></div>
-  </div>
+  <nav class="nav" id="nav">
+    <a href="#bio">學術生平</a>
+    <a href="#themes">研究與應用</a>
+    <a href="#tl">完整時間軸</a>
+  </nav>
 
-  <div class="timeline" id="timeline"></div>
+  <!-- 主視圖 -->
+  <main id="main">
+    <section id="bio">
+      <div class="sec-h"><h2>學術生平</h2><span class="en">Academic Biography</span></div>
+      <div id="bio-body"></div>
+    </section>
+
+    <section id="themes">
+      <div class="sec-h"><h2>研究主題與應用</h2><span class="en">Research Themes &amp; Applications</span></div>
+      <div id="themes-body"></div>
+    </section>
+
+    <section id="tl">
+      <div class="sec-h"><h2>完整時間軸</h2><span class="en">Timeline</span></div>
+      <div class="controls">
+        <div class="searchrow">
+          <input id="search" type="search" placeholder="搜尋標題、作者、期刊、標籤…（例：稀土、第一作者、JACS）">
+          <button class="btn" id="export-btn" title="匯出目前篩選結果為 JSON">匯出 JSON</button>
+        </div>
+        <div class="filters" id="filters"></div>
+        <div class="count" id="count"></div>
+      </div>
+      <div class="timeline" id="timeline"></div>
+    </section>
+  </main>
+
+  <!-- 詳頁視圖（hash route: #/paper/<id>） -->
+  <div id="detail"></div>
 
   <footer>
-    每筆紀錄均標註公開來源；「待確認」表示尚未有公開來源佐證。<br>
-    私有紀錄僅存在於本機 <code>data/records.private.js</code>（不進版本控制、不對外發布）；公開部署僅含 <code>data/records.js</code>。
+    每筆紀錄均標註公開來源；「待確認」表示尚未有公開來源佐證。摘要與引用數取自 Semantic Scholar／PubMed／Crossref，統計時點標示於各頁。<br>
+    私有紀錄僅存在於本機 <code>data/records.private.json</code>（不進版本控制、不對外發布）；公開部署僅含 <code>data/records.json</code>。
   </footer>
 </div>
 
-<script src="data/records.js"></script>
-<script src="data/records.private.js" onerror="void 0"></script>
 <script>
-(function(){
-  const PUB = window.TIMELINE_DATA;
-  const PRIV = window.TIMELINE_PRIVATE || null;
+async function loadJSON(url){
+  try{
+    const res = await fetch(url, {cache:"no-cache"});
+    if(!res.ok) return null;
+    return await res.json();
+  }catch(e){ return null; }
+}
+(async function(){
+  const [PUB, PRIV] = await Promise.all([
+    loadJSON("data/records.json"),
+    loadJSON("data/records.private.json")   // 不存在則靜默略過（404 / parse 失敗皆回 null）
+  ]);
+  if(!PUB){
+    document.getElementById("timeline").innerHTML =
+      '<div class="empty">資料載入失敗。請透過本機伺服器（如 <code>python -m http.server</code>）或部署網址開啟本頁；直接以 file:// 開啟時瀏覽器會阻擋 fetch。</div>';
+    return;
+  }
   const CATS = [
     ["all","全部"],["publication","期刊論文"],["preprint","預印本"],
     ["milestone","里程碑"],["education","學歷"],["career","經歷"]
   ];
   const STATES = [["all","全部"],["verified","已驗證"],["unverified","待確認"]];
   const CAT_NAME = Object.fromEntries(CATS);
+  const SELF_RE = /jou[- ]?tsen\s+ou/i;
   let activeCat="all", activeState="all", query="", showPrivate=true;
 
   function allRecords(){
@@ -105,21 +204,60 @@
     if(!PRIV || !showPrivate) return pub;
     return pub.concat((PRIV.records||[]).map(r=>({...r,_private:true})));
   }
+  function byId(id){ return allRecords().find(r=>r.id===id); }
+  function esc(s){return String(s??"").replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));}
+  // 只允許 http(s) 連結，阻擋 javascript: 等 scheme（防資料層被塞惡意連結）
+  function safeUrl(u){ return /^https?:\/\//i.test(String(u||"").trim()) ? esc(String(u).trim()) : ""; }
+  function hl(s){
+    let out=esc(s);
+    if(query) query.split(/\s+/).filter(Boolean).forEach(t=>{
+      const re=new RegExp("("+t.replace(/[.*+?^${}()|[\]\\]/g,"\\$&")+")","gi");
+      out=out.replace(re,"<mark>$1</mark>");
+    });
+    return out;
+  }
 
-  // header
+  // ── header ──
   const person = {...PUB.person, ...(PRIV&&PRIV.personPatch?PRIV.personPatch:{})};
   document.getElementById("p-name").textContent = person.name;
   document.getElementById("p-field").textContent = person.field;
   const m = person.metrics;
   document.getElementById("p-metrics").innerHTML =
-    `<div class="metric"><b>${m.papers}</b>篇論文</div>
-     <div class="metric"><b>${m.citations}</b>次引用</div>
-     <div class="metric"><b>${m.hIndex}</b>h-index</div>
-     <div class="metric">統計：${m.asOf}</div>`;
+    `<div class="metric"><b>${esc(m.papers)}</b>篇論文</div>
+     <div class="metric"><b>${esc(m.citations)}</b>次引用</div>
+     <div class="metric"><b>${esc(m.hIndex)}</b>h-index</div>
+     <div class="metric">統計：${esc(m.asOf)}</div>`;
   document.getElementById("p-profiles").innerHTML =
-    person.profiles.map(p=>`<a href="${p.url}" target="_blank" rel="noopener">${p.label} ↗</a>`).join("");
+    person.profiles.map(p=>{
+      const u=safeUrl(p.url);
+      return u?`<a href="${u}" target="_blank" rel="noopener noreferrer">${esc(p.label)} ↗</a>`:"";
+    }).join("");
 
-  // filters
+  // ── 生平 ──
+  document.getElementById("bio-body").innerHTML = (PUB.bio||[]).map(b=>`
+    <div class="bio-block">
+      <h3>${esc(b.era)}</h3>
+      <p>${esc(b.text)}</p>
+      ${b.note?`<span class="bio-note">待確認：${esc(b.note)}</span>`:""}
+    </div>`).join("") || '<div class="empty">尚無生平資料</div>';
+
+  // ── 研究主題與應用 ──
+  document.getElementById("themes-body").innerHTML = (PUB.themes||[]).map(t=>{
+    const pubs = (t.recordIds||[]).map(id=>{
+      const r = byId(id); if(!r) return "";
+      const y = (r.date||"").slice(0,4);
+      return `<a href="#/paper/${esc(r.id)}"><span class="yr">${esc(y)}</span>${esc(r.title)}${r.venue?`（${esc(r.venue)}）`:""}</a>`;
+    }).join("");
+    return `<div class="theme">
+      <h3>${esc(t.title)}</h3>
+      <div class="period">${esc(t.period)}</div>
+      <p>${esc(t.summary)}</p>
+      <div class="apps">${(t.applications||[]).map(a=>`<span class="app">${esc(a)}</span>`).join("")}</div>
+      ${pubs?`<div class="theme-pubs"><span class="tp-label">相關紀錄</span>${pubs}</div>`:""}
+    </div>`;
+  }).join("") || '<div class="empty">尚無主題資料</div>';
+
+  // ── 篩選器 ──
   const fEl = document.getElementById("filters");
   let fh = `<span class="flabel">類別</span>` +
     CATS.map(([k,v])=>`<button class="chip${k==='all'?' active':''}" data-kind="cat" data-v="${k}">${v}</button>`).join("") +
@@ -156,19 +294,13 @@
     if(activeState==="verified" && !r.verified) return false;
     if(activeState==="unverified" && r.verified) return false;
     if(!query) return true;
-    const hay=[r.title,r.detail,r.venue,(r.tags||[]).join(" "),r.displayDate].join(" ").toLowerCase();
+    const hay=[r.title,r.detail,r.venue,(r.tags||[]).join(" "),(r.authors||[]).join(" "),r.displayDate].join(" ").toLowerCase();
     return query.split(/\s+/).every(t=>hay.includes(t));
   }
-  function esc(s){return String(s??"").replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));}
-  function hl(s){
-    let out=esc(s);
-    if(query) query.split(/\s+/).filter(Boolean).forEach(t=>{
-      const re=new RegExp("("+t.replace(/[.*+?^${}()|[\]\\]/g,"\\$&")+")","gi");
-      out=out.replace(re,"<mark>$1</mark>");
-    });
-    return out;
-  }
 
+  function hasDetail(r){ return r.category==="publication" || r.category==="preprint" || r.doi || r.abstract; }
+
+  // ── 時間軸 ──
   function render(){
     const list = allRecords().filter(hit).sort((a,b)=>b.date.localeCompare(a.date));
     const nPriv = list.filter(r=>r._private).length;
@@ -180,18 +312,25 @@
     for(const r of list){
       const y=r.date.slice(0,4);
       if(y!==curYear){ curYear=y; html+=`<div class="year">${y}</div>`; }
+      const titleHtml = hasDetail(r)
+        ? `<a href="#/paper/${esc(r.id)}" title="開啟詳細頁">${hl(r.title)}</a>`
+        : hl(r.title);
       html+=`<div class="card${r._private?" private":""}">
         <div class="top">
           <span class="badge b-${r.category}">${CAT_NAME[r.category]||esc(r.category)}</span>
           <span class="date">${esc(r.displayDate)}</span>
           ${r.verified?"":`<span class="flag unverified">待確認</span>`}
           ${r._private?`<span class="flag privflag">私有</span>`:""}
+          ${typeof r.citationCount==="number"?`<span class="cite-inline">被引 ${r.citationCount}</span>`:""}
         </div>
-        <h3>${hl(r.title)}</h3>
+        <h3>${titleHtml}</h3>
         ${r.venue?`<div class="venue">${hl(r.venue)}</div>`:""}
         ${r.detail?`<div class="detail">${hl(r.detail)}</div>`:""}
         ${(r.tags&&r.tags.length)?`<div class="tags">${r.tags.map(t=>`<span class="tag" data-t="${esc(t)}">${hl(t)}</span>`).join("")}</div>`:""}
-        ${r.source?`<a class="src" href="${esc(r.source)}" target="_blank" rel="noopener">來源 ↗</a>`:""}
+        <div class="links">
+          ${hasDetail(r)?`<a href="#/paper/${esc(r.id)}">詳細閱讀 →</a>`:""}
+          ${safeUrl(r.source)?`<a href="${safeUrl(r.source)}" target="_blank" rel="noopener noreferrer">來源 ↗</a>`:""}
+        </div>
       </div>`;
     }
     tl.innerHTML=html;
@@ -199,7 +338,111 @@
       sEl.value=t.dataset.t; query=t.dataset.t.toLowerCase(); render();
     }));
   }
+
+  // ── 詳頁 ──
+  function bibtex(r){
+    if(!r.doi) return "";
+    const y=(r.date||"").slice(0,4);
+    const firstAuthor=((r.authors&&r.authors[0])||"ou").split(/\s+/).pop().toLowerCase();
+    const key=`${firstAuthor}${y}${(r.title||"").split(/\s+/)[0].toLowerCase().replace(/[^a-z]/g,"")}`;
+    const type = r.category==="preprint" ? "misc" : "article";
+    const lines=[`@${type}{${key},`,
+      `  author  = {${(r.authors||[]).join(" and ")}},`,
+      `  title   = {${r.title}},`];
+    if(type==="article") lines.push(`  journal = {${r.venue||""}},`);
+    else lines.push(`  howpublished = {${r.venue||"Preprint"}},`);
+    lines.push(`  year    = {${y}},`,`  doi     = {${r.doi}}`,`}`);
+    return lines.join("\n");
+  }
+  function paperNav(r){
+    const papers = allRecords().filter(hasDetail).sort((a,b)=>a.date.localeCompare(b.date));
+    const i = papers.findIndex(p=>p.id===r.id);
+    const prev = i>0?papers[i-1]:null, next = i>=0&&i<papers.length-1?papers[i+1]:null;
+    return `<div class="pnav">
+      <span>${prev?`<a href="#/paper/${esc(prev.id)}">← ${esc(prev.title)}</a>`:""}</span>
+      <span>${next?`<a href="#/paper/${esc(next.id)}">${esc(next.title)} →</a>`:""}</span>
+    </div>`;
+  }
+  function renderDetail(id){
+    const r = byId(id);
+    const d = document.getElementById("detail");
+    if(!r){ location.hash=""; return; }
+    const authorsHtml = (r.authors&&r.authors.length)
+      ? `<div class="d-sec"><h4>作者（共 ${r.authors.length} 位）</h4>
+           <div class="authors">${r.authors.map(a=>SELF_RE.test(a)?`<span class="self">${esc(a)}</span>`:esc(a)).join("・")}
+           ${r.authorNote?`<span class="anote">${esc(r.authorNote)}</span>`:""}</div></div>`
+      : "";
+    const theme = (PUB.themes||[]).find(t=>(t.recordIds||[]).includes(r.id));
+    d.innerHTML = `
+      <a class="d-back" href="#tl" data-back>← 返回時間軸</a>
+      <article class="paper">
+        <div class="top">
+          <span class="badge b-${r.category}">${CAT_NAME[r.category]||esc(r.category)}</span>
+          <span class="date">${esc(r.displayDate)}</span>
+          ${r.verified?"":`<span class="flag unverified">待確認</span>`}
+          ${r._private?`<span class="flag privflag">私有</span>`:""}
+        </div>
+        <h2>${esc(r.title)}</h2>
+        ${r.venue?`<div class="venue">${esc(r.venue)}${r.date?`・${esc(r.date.slice(0,4))}`:""}</div>`:""}
+        <div class="d-metrics">
+          ${typeof r.citationCount==="number"?`<div class="d-metric"><b>${r.citationCount}</b>被引用${r.citationsAsOf?`（${esc(r.citationsAsOf)}）`:""}</div>`:""}
+          ${r.authorNote?`<div class="d-metric">${esc(r.authorNote)}</div>`:""}
+          ${theme?`<div class="d-metric">研究主題：${esc(theme.title)}</div>`:""}
+        </div>
+        ${authorsHtml}
+        ${r.significance?`<div class="d-sec"><h4>研究意義與應用</h4><p class="zh">${esc(r.significance)}</p></div>`:""}
+        ${r.contribution?`<div class="d-sec"><h4>本人貢獻</h4><p class="zh">${esc(r.contribution)}</p></div>`:""}
+        ${r.abstract?`<div class="d-sec"><h4>原文摘要 Abstract</h4>
+            <p class="abstract" lang="en">${esc(r.abstract)}</p>
+            ${r.abstractSource?`<div class="src-note">摘要來源：${esc(r.abstractSource)}</div>`:""}</div>`
+          :(r.abstractSource?`<div class="d-sec"><h4>原文摘要 Abstract</h4><div class="src-note">${esc(r.abstractSource)}</div></div>`:"")}
+        ${(!r.abstract && r.detail)?`<div class="d-sec"><h4>說明</h4><p class="zh">${esc(r.detail)}</p></div>`:""}
+        ${(r.tags&&r.tags.length)?`<div class="d-sec"><h4>標籤</h4><div class="tags">${r.tags.map(t=>`<span class="tag" data-t="${esc(t)}">${esc(t)}</span>`).join("")}</div></div>`:""}
+        <div class="d-sec"><h4>連結與引用</h4>
+          <div class="d-links">
+            ${r.doi?`<a href="https://doi.org/${esc(r.doi)}" target="_blank" rel="noopener noreferrer">DOI: ${esc(r.doi)} ↗</a>`:""}
+            ${safeUrl(r.source)?`<a href="${safeUrl(r.source)}" target="_blank" rel="noopener noreferrer">公開來源 ↗</a>`:""}
+            ${r.doi?`<button class="btn" id="bib-btn">BibTeX</button><button class="btn" id="bib-copy">複製 BibTeX</button>`:""}
+          </div>
+          ${r.doi?`<pre class="bibtex" id="bib-pre">${esc(bibtex(r))}</pre>`:""}
+        </div>
+        ${paperNav(r)}
+      </article>`;
+    const bb=document.getElementById("bib-btn"), bp=document.getElementById("bib-pre"), bc=document.getElementById("bib-copy");
+    if(bb&&bp) bb.addEventListener("click",()=>{ bp.style.display = bp.style.display==="block"?"none":"block"; });
+    if(bc) bc.addEventListener("click",async()=>{
+      try{ await navigator.clipboard.writeText(bibtex(r)); bc.textContent="已複製 ✓"; }
+      catch(e){ if(bp){bp.style.display="block";} bc.textContent="請手動複製"; }
+      setTimeout(()=>{bc.textContent="複製 BibTeX";},2000);
+    });
+    // 詳頁點標籤 → 回時間軸帶入搜尋
+    d.querySelectorAll(".tag").forEach(t=>t.addEventListener("click",()=>{
+      sEl.value=t.dataset.t; query=t.dataset.t.toLowerCase(); render();
+      location.hash="#tl";
+    }));
+  }
+
+  // ── hash 路由 ──
+  const mainEl=document.getElementById("main"), detailEl=document.getElementById("detail"), navEl=document.getElementById("nav");
+  function route(){
+    const h=location.hash||"";
+    const mPaper=h.match(/^#\/paper\/(.+)$/);
+    if(mPaper){
+      mainEl.style.display="none"; navEl.style.display="none"; detailEl.style.display="block";
+      renderDetail(decodeURIComponent(mPaper[1]));
+      window.scrollTo(0,0);
+    }else{
+      detailEl.style.display="none"; mainEl.style.display="block"; navEl.style.display="flex";
+      if(h && h!=="#" ){
+        const target=document.querySelector(h.replace(/[^#a-zA-Z0-9_-]/g,""));
+        if(target) target.scrollIntoView({behavior:"instant",block:"start"});
+      }
+    }
+  }
+  window.addEventListener("hashchange",route);
+
   render();
+  route();
 })();
 </script>
 </body>

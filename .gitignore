@@ -1,5 +1,6 @@
 # 私有資料：僅存本機，永不推送
 data/records.private.js
+data/records.private.json
 
 # 維護筆記：本機 + private-vault 同步，不進公開 repo
 MAINTENANCE.md

@@ -1,0 +1,93 @@
+# Sveltia CMS 設定
+# 登入：GitHub PAT（登入頁「Sign In with Token」；編輯者需為本 repo collaborator，
+# token 需 repo contents read/write 權限）。未設 OAuth 中繼，屬刻意選擇（零基礎設施）。
+backend:
+  name: github
+  repo: tessOu56/jou-tsen-ou-timeline
+  branch: main
+
+site_url: https://tessou56.github.io/jou-tsen-ou-timeline/
+media_folder: assets
+public_folder: /jou-tsen-ou-timeline/assets
+
+collections:
+  - name: timeline
+    label: 時間軸資料
+    files:
+      - name: records
+        label: 公開紀錄（records.json）
+        file: data/records.json
+        format: json
+        fields:
+          - name: person
+            label: 個人資料
+            widget: object
+            fields:
+              - { name: name, label: 姓名, widget: string }
+              - { name: field, label: 研究領域, widget: string }
+              - name: profiles
+                label: 公開檔案連結
+                widget: list
+                fields:
+                  - { name: label, label: 名稱, widget: string }
+                  - { name: url, label: 網址, widget: string }
+              - name: metrics
+                label: 統計
+                widget: object
+                fields:
+                  - { name: papers, label: 論文數, widget: number, value_type: int }
+                  - { name: citations, label: 引用數, widget: number, value_type: int }
+                  - { name: hIndex, label: h-index, widget: number, value_type: int }
+                  - { name: asOf, label: 統計時點, widget: string }
+          - name: bio
+            label: 學術生平（分段敘事）
+            widget: list
+            required: false
+            fields:
+              - { name: era, label: 階段標題, widget: string }
+              - { name: text, label: 敘事內容, widget: text }
+              - { name: note, label: 待確認註記, widget: string, required: false, default: "" }
+          - name: themes
+            label: 研究主題與應用
+            widget: list
+            required: false
+            fields:
+              - { name: id, label: ID, widget: string }
+              - { name: title, label: 主題名稱, widget: string }
+              - { name: period, label: 期間／單位, widget: string }
+              - { name: summary, label: 主題摘要, widget: text }
+              - { name: applications, label: 應用領域, widget: list, field: { name: app, label: 應用, widget: string } }
+              - { name: recordIds, label: 關聯紀錄 ID, widget: list, field: { name: rid, label: 紀錄 ID, widget: string } }
+          - name: records
+            label: 紀錄
+            label_singular: 紀錄
+            widget: list
+            summary: "{{fields.date}}｜{{fields.title}}"
+            fields:
+              - { name: id, label: ID, widget: string, hint: "唯一識別，如 pub-2025-chemcomm" }
+              - { name: date, label: 排序日期, widget: string, hint: "YYYY 或 YYYY-MM 或 YYYY-MM-DD，用於排序" }
+              - { name: displayDate, label: 顯示日期, widget: string, hint: "頁面上顯示的文字，可寫「約 2021」" }
+              - name: category
+                label: 類別
+                widget: select
+                options:
+                  - { label: 期刊論文, value: publication }
+                  - { label: 預印本, value: preprint }
+                  - { label: 里程碑, value: milestone }
+                  - { label: 學歷, value: education }
+                  - { label: 經歷, value: career }
+              - { name: title, label: 標題, widget: string }
+              - { name: detail, label: 說明, widget: text, required: false, default: "" }
+              - { name: venue, label: 期刊／機構, widget: string, required: false, default: "" }
+              - { name: tags, label: 標籤, widget: list, field: { name: tag, label: 標籤, widget: string }, required: false }
+              - { name: verified, label: 已驗證（有公開來源佐證）, widget: boolean, default: false }
+              - { name: source, label: 來源網址, widget: string, required: false, default: "", hint: "verified 為 true 時必填 DOI 或公開連結" }
+              - { name: doi, label: DOI, widget: string, required: false, default: "", hint: "論文／預印本填，如 10.1039/d4cc05827e" }
+              - { name: authors, label: 完整作者列, widget: list, field: { name: author, label: 作者, widget: string }, required: false }
+              - { name: authorNote, label: 作者序註記, widget: string, required: false, default: "", hint: "如「第一作者（共 8 位）」" }
+              - { name: citationCount, label: 引用數, widget: number, value_type: int, required: false }
+              - { name: citationsAsOf, label: 引用數統計時點, widget: string, required: false, default: "" }
+              - { name: abstract, label: 原文摘要, widget: text, required: false, default: "" }
+              - { name: abstractSource, label: 摘要來源, widget: string, required: false, default: "", hint: "如 Semantic Scholar、PubMed、Crossref" }
+              - { name: contribution, label: 貢獻說明（中文）, widget: text, required: false, default: "" }
+              - { name: significance, label: 研究意義與應用（中文）, widget: text, required: false, default: "" }

@@ -1,0 +1,45 @@
+name: publication-tracker
+
+# 每月 1 日 02:00 UTC 檢查 Semantic Scholar 新發表；找到新論文時開 PR 供審核。
+# 注意：需在 repo Settings → Actions → General 勾選
+# 「Allow GitHub Actions to create and approve pull requests」。
+on:
+  schedule:
+    - cron: "0 2 1 * *"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Check Semantic Scholar for new publications
+        id: check
+        run: node scripts/check-publications.mjs
+      - name: Open PR for review
+        if: steps.check.outputs.found != '0'
+        # 第三方 action 以 commit SHA 鎖定（= v7），防 tag 被改指向惡意 commit
+        uses: peter-evans/create-pull-request@22a9089034f40e5a961c8808d113e2c98fb63676
+        with:
+          branch: tracker/new-publications
+          commit-message: "tracker: 新發表待審（Semantic Scholar 月度檢查）"
+          title: "📚 發現新發表，待審核"
+          body: |
+            每月自動追蹤（Semantic Scholar）發現以下新發表，已以 `verified: false` 加入 `data/records.json`：
+
+            ${{ steps.check.outputs.titles }}
+
+            **審核清單**
+            - [ ] 核對 DOI／來源連結有效
+            - [ ] 補作者序與說明（detail）
+            - [ ] 補標籤、displayDate
+            - [ ] 確認後將 `verified` 改為 `true`（可直接在 CMS 編輯）
+          labels: tracker
+          delete-branch: true
