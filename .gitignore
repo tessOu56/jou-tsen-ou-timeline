@@ -12,3 +12,6 @@ jou-tsen-ou-records-export.json
 # 系統
 .DS_Store
 Thumbs.db
+
+# Platform tickets — never commit distributed inbox
+docs/platform-inbox/
