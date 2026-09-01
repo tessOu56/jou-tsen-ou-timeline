@@ -3,12 +3,29 @@
     "name": "Jou-Tsen Ou（歐柔岑）",
     "field": "化學（超分子化學、稀土分離、高分子材料）",
     "profiles": [
-      { "label": "Semantic Scholar", "url": "https://www.semanticscholar.org/author/Jou-Tsen-Ou/40559614" },
-      { "label": "ResearchGate", "url": "https://www.researchgate.net/profile/Jou-Tsen-Ou-2" },
-      { "label": "LinkedIn", "url": "https://www.linkedin.com/in/jou-tsen-ou-4841a6138/" },
-      { "label": "UMD 系所頁面", "url": "https://chem.umd.edu/people/jou-tsen-ou" }
+      {
+        "label": "Semantic Scholar",
+        "url": "https://www.semanticscholar.org/author/Jou-Tsen-Ou/40559614"
+      },
+      {
+        "label": "ResearchGate",
+        "url": "https://www.researchgate.net/profile/Jou-Tsen-Ou-2"
+      },
+      {
+        "label": "LinkedIn",
+        "url": "https://www.linkedin.com/in/jou-tsen-ou-4841a6138/"
+      },
+      {
+        "label": "UMD 系所頁面",
+        "url": "https://chem.umd.edu/people/jou-tsen-ou"
+      }
     ],
-    "metrics": { "papers": 7, "citations": 44, "hIndex": 4, "asOf": "2026-07（Semantic Scholar）" }
+    "metrics": {
+      "papers": 9,
+      "citations": 44,
+      "hIndex": 4,
+      "asOf": "2026-09（Semantic Scholar）"
+    }
   },
   "bio": [
     {
@@ -33,24 +50,47 @@
       "title": "超分子化學與主客體組裝",
       "period": "2017–2022｜交大 王建隆實驗室",
       "summary": "從 DPP 寡聚物的結晶工程出發，發展 POSS 基「單分子四重夾（Q-clip）」主客體系統：適應性組裝、組成比例驅動的結構調變、客體誘導奈米模板；並以八臂星形巨型分子連結分子與超分子兩個層級的變形（shapeshifting）行為。",
-      "applications": ["有機半導體與場效電晶體（OFET）", "超分子功能材料", "奈米模板與中空超分子骨架"],
-      "recordIds": ["pub-2017-acsami", "pub-2020-nanoadv", "pub-2021-macromol", "pub-2022-jacs"]
+      "applications": [
+        "有機半導體與場效電晶體（OFET）",
+        "超分子功能材料",
+        "奈米模板與中空超分子骨架"
+      ],
+      "recordIds": [
+        "pub-2017-acsami",
+        "pub-2020-nanoadv",
+        "pub-2021-macromol",
+        "pub-2022-jacs"
+      ]
     },
     {
       "id": "ree",
       "title": "自組裝驅動的稀土分離",
       "period": "約 2021–2025｜UMD Mercedes Taylor 實驗室（博士論文主軸）",
       "summary": "以稀土金屬與三牙配體自組裝 M4L4 金屬有機籠，利用鑭系離子尺寸差異達成選擇性結合與分離；進一步把可聚合（烯烴端基）籠經 thiol-ene 交聯為稀土結合高分子網絡，並以單晶繞射、EXAFS 與 DFT 建立配體設計原則。",
-      "applications": ["稀土元素分離與回收", "關鍵材料供應鏈（永磁體、螢光體、電動車馬達）", "可聚合金屬有機籠材料"],
-      "recordIds": ["pub-2025-chemcomm", "pre-2025-chemrxiv", "ms-2025-defense"]
+      "applications": [
+        "稀土元素分離與回收",
+        "關鍵材料供應鏈（永磁體、螢光體、電動車馬達）",
+        "可聚合金屬有機籠材料"
+      ],
+      "recordIds": [
+        "pub-2025-chemcomm",
+        "pre-2025-chemrxiv",
+        "ms-2025-defense"
+      ]
     },
     {
       "id": "polymer",
       "title": "功能高分子與離子聚合物",
       "period": "2023–2024｜UMD 及跨機構合作（Sandia、UF、UPenn）",
       "summary": "羰基富集多孔有機聚合物（POP）之水中鈷吸附——藉端基比例調控最大化吸附容量；以及聚醯胺離子聚合物的結構—溶解度—結晶性關係，為博士論文的第二主軸。",
-      "applications": ["水中重金屬吸附與關鍵金屬回收", "離子聚合物網絡材料"],
-      "recordIds": ["pub-2023-jmcc", "pub-2024-acsapm"]
+      "applications": [
+        "水中重金屬吸附與關鍵金屬回收",
+        "離子聚合物網絡材料"
+      ],
+      "recordIds": [
+        "pub-2023-jmcc",
+        "pub-2024-acsapm"
+      ]
     }
   ],
   "records": [
@@ -62,7 +102,12 @@
       "title": "台灣求學階段：台灣大學、陽明交通大學（交大）",
       "detail": "曾就讀台大與交大（學位與年份待家人補充）。交大期間於王建隆（Chien-Lung Wang）實驗室從事超分子化學研究，2017–2022 年間共同發表多篇論文。",
       "venue": "NTU / NCTU(NYCU)",
-      "tags": ["台大", "交大", "王建隆實驗室", "超分子化學"],
+      "tags": [
+        "台大",
+        "交大",
+        "王建隆實驗室",
+        "超分子化學"
+      ],
       "verified": false,
       "source": ""
     },
@@ -74,11 +119,27 @@
       "title": "Roles of 3-Ethylrhodanine in Attaining Highly Ordered Crystal Arrays of Ambipolar Diketopyrrolopyrrole Oligomers",
       "detail": "共同作者（第 6 作者）。DPP 寡聚物端基工程與結晶陣列研究。",
       "venue": "ACS Applied Materials & Interfaces",
-      "tags": ["有機半導體", "結晶", "OFET", "交大時期"],
+      "tags": [
+        "有機半導體",
+        "結晶",
+        "OFET",
+        "交大時期"
+      ],
       "verified": true,
       "source": "https://doi.org/10.1021/acsami.7b01702",
       "doi": "10.1021/acsami.7b01702",
-      "authors": ["San-Lien Wu", "Yi-Fan Huang", "Chou-Ting Hsieh", "Bo-Han Lai", "Po-Sen Tseng", "Jou-Tsen Ou", "Ssu-Ting Liao", "Szu-Yu Chou", "Kuan-Yi Wu", "Chien-Lung Wang"],
+      "authors": [
+        "San-Lien Wu",
+        "Yi-Fan Huang",
+        "Chou-Ting Hsieh",
+        "Bo-Han Lai",
+        "Po-Sen Tseng",
+        "Jou-Tsen Ou",
+        "Ssu-Ting Liao",
+        "Szu-Yu Chou",
+        "Kuan-Yi Wu",
+        "Chien-Lung Wang"
+      ],
       "authorNote": "第 6 作者（共 10 位）",
       "citationCount": 22,
       "citationsAsOf": "2026-07（Semantic Scholar）",
@@ -95,11 +156,26 @@
       "title": "Adaptive molecular quaternary clips made with pyrene functionalized polyhedral oligomeric silsesquioxane",
       "detail": "第二作者。POSS 基適應性單分子四重夾（Q-clip）之主客體組裝。",
       "venue": "Nanoscale Advances",
-      "tags": ["超分子", "POSS", "host-guest", "交大時期"],
+      "tags": [
+        "超分子",
+        "POSS",
+        "host-guest",
+        "交大時期"
+      ],
       "verified": true,
       "source": "https://doi.org/10.1039/d0na00793e",
       "doi": "10.1039/d0na00793e",
-      "authors": ["Tsung-Kai Yang", "Jou-Tsen Ou", "Heng-Yi Lin", "Wei-Cheng Peng", "Meng-Hsuan Jao", "Jia Chen", "Bin Sun", "Yu Zhu", "Chien-Lung Wang"],
+      "authors": [
+        "Tsung-Kai Yang",
+        "Jou-Tsen Ou",
+        "Heng-Yi Lin",
+        "Wei-Cheng Peng",
+        "Meng-Hsuan Jao",
+        "Jia Chen",
+        "Bin Sun",
+        "Yu Zhu",
+        "Chien-Lung Wang"
+      ],
       "authorNote": "第 2 作者（共 9 位）",
       "citationCount": 4,
       "citationsAsOf": "2026-07（Semantic Scholar）",
@@ -116,11 +192,28 @@
       "title": "Composition-Driven Structural Modulation and Guest-Induced Nanotemplate Effects of the Host–Guest Complexes Made by a Unimolecular Q-Clip",
       "detail": "第一作者。以主客體莫耳比調變超分子結構，並以昇華客體實現奈米模板。",
       "venue": "Macromolecules",
-      "tags": ["第一作者", "host-guest", "Q-clip", "奈米模板", "交大時期"],
+      "tags": [
+        "第一作者",
+        "host-guest",
+        "Q-clip",
+        "奈米模板",
+        "交大時期"
+      ],
       "verified": true,
       "source": "https://doi.org/10.1021/acs.macromol.1c00947",
       "doi": "10.1021/acs.macromol.1c00947",
-      "authors": ["Jou-Tsen Ou", "Tsung-Kai Yang", "Heng-Yi Lin", "Hong-Yu Hsu", "Tzu-Jung Chen", "Yi-Sheng Ou", "Jia Chen", "Cheng-Yu Wang", "Bin Sun", "Chien-Lung Wang"],
+      "authors": [
+        "Jou-Tsen Ou",
+        "Tsung-Kai Yang",
+        "Heng-Yi Lin",
+        "Hong-Yu Hsu",
+        "Tzu-Jung Chen",
+        "Yi-Sheng Ou",
+        "Jia Chen",
+        "Cheng-Yu Wang",
+        "Bin Sun",
+        "Chien-Lung Wang"
+      ],
       "authorNote": "第一作者（共 10 位）",
       "citationCount": 6,
       "citationsAsOf": "2026-07（Semantic Scholar）",
@@ -137,7 +230,11 @@
       "title": "進入馬里蘭大學（UMD）化學博士班，加入 Mercedes Taylor 實驗室",
       "detail": "研究方向：自組裝驅動之稀土分離（M4L4 金屬有機籠、聚醯胺離子聚合物網絡）。入學年份為推估，待確認。",
       "venue": "University of Maryland, College Park",
-      "tags": ["UMD", "Taylor 實驗室", "稀土分離"],
+      "tags": [
+        "UMD",
+        "Taylor 實驗室",
+        "稀土分離"
+      ],
       "verified": false,
       "source": "https://chem.umd.edu/people/jou-tsen-ou"
     },
@@ -149,11 +246,26 @@
       "title": "Connecting Molecular and Supramolecular Shapeshifting by the Ostwald's Nucleation Stages of a Star Giant Molecule",
       "detail": "第二作者。八臂星形巨型分子 NPOSS 於不同 Ostwald 成核階段的分子／超分子雙層級變形。",
       "venue": "Journal of the American Chemical Society (JACS)",
-      "tags": ["自組裝", "巨型分子", "JACS", "交大時期成果"],
+      "tags": [
+        "自組裝",
+        "巨型分子",
+        "JACS",
+        "交大時期成果"
+      ],
       "verified": true,
       "source": "https://doi.org/10.1021/jacs.2c01715",
       "doi": "10.1021/jacs.2c01715",
-      "authors": ["Hong-Yu Hsu", "Jou-Tsen Ou", "Tsu-Tung Cheng", "Heng-Yi Lin", "Chan-Yi Lin", "Jia Chen", "Bin Sun", "Po-Wen Chung", "Chien-Lung Wang"],
+      "authors": [
+        "Hong-Yu Hsu",
+        "Jou-Tsen Ou",
+        "Tsu-Tung Cheng",
+        "Heng-Yi Lin",
+        "Chan-Yi Lin",
+        "Jia Chen",
+        "Bin Sun",
+        "Po-Wen Chung",
+        "Chien-Lung Wang"
+      ],
       "authorNote": "第 2 作者（共 9 位）",
       "citationCount": 6,
       "citationsAsOf": "2026-07（Semantic Scholar）",
@@ -170,11 +282,25 @@
       "title": "Carbonyl-rich porous organic polymers for cobalt adsorption from water",
       "detail": "共同作者（第 4 作者）。羰基富集多孔有機聚合物之水中鈷吸附。",
       "venue": "Journal of Materials Chemistry C",
-      "tags": ["多孔聚合物", "水處理", "鈷回收", "UMD 時期"],
+      "tags": [
+        "多孔聚合物",
+        "水處理",
+        "鈷回收",
+        "UMD 時期"
+      ],
       "verified": true,
       "source": "https://doi.org/10.1039/d3tc03320a",
       "doi": "10.1039/d3tc03320a",
-      "authors": ["Min Chieh Yang", "Devin S. Rollins", "Dale L. Huber", "Jou-Tsen Ou", "Michael R. Baptiste", "Andrea N. Zeppuhar", "Fu Chen", "Mercedes K. Taylor"],
+      "authors": [
+        "Min Chieh Yang",
+        "Devin S. Rollins",
+        "Dale L. Huber",
+        "Jou-Tsen Ou",
+        "Michael R. Baptiste",
+        "Andrea N. Zeppuhar",
+        "Fu Chen",
+        "Mercedes K. Taylor"
+      ],
       "authorNote": "第 4 作者（共 8 位）",
       "citationCount": 2,
       "citationsAsOf": "2026-07（Semantic Scholar）",
@@ -191,11 +317,24 @@
       "title": "Structural Effects on Solubility and Crystallinity in Polyamide Ionomers",
       "detail": "第一作者。聚醯胺離子聚合物的結構—溶解度—結晶性關係（跨 UMD／Sandia／UF／UPenn 合作）。",
       "venue": "ACS Applied Polymer Materials",
-      "tags": ["第一作者", "聚醯胺離子聚合物", "UMD 時期"],
+      "tags": [
+        "第一作者",
+        "聚醯胺離子聚合物",
+        "UMD 時期"
+      ],
       "verified": true,
       "source": "https://doi.org/10.1021/acsapm.4c02012",
       "doi": "10.1021/acsapm.4c02012",
-      "authors": ["Jou-Tsen Ou", "Margaret K. Brown", "Jason D. Kaff", "Rhys W. Hughes", "Dale L. Huber", "Brent S. Sumerlin", "Karen I. Winey", "Mercedes K. Taylor"],
+      "authors": [
+        "Jou-Tsen Ou",
+        "Margaret K. Brown",
+        "Jason D. Kaff",
+        "Rhys W. Hughes",
+        "Dale L. Huber",
+        "Brent S. Sumerlin",
+        "Karen I. Winey",
+        "Mercedes K. Taylor"
+      ],
       "authorNote": "第一作者（共 8 位）",
       "citationCount": 4,
       "citationsAsOf": "2026-07（Semantic Scholar）",
@@ -212,11 +351,19 @@
       "title": "Selective binding of rare-earth ions in polymerizable cages",
       "detail": "第一作者（與指導教授 Mercedes Taylor 二人作）。稀土金屬與烯烴端基配體自組裝成籠，經 thiol-ene 聚合形成稀土結合高分子網絡。",
       "venue": "Chemical Communications",
-      "tags": ["第一作者", "稀土分離", "金屬有機籠", "UMD 時期"],
+      "tags": [
+        "第一作者",
+        "稀土分離",
+        "金屬有機籠",
+        "UMD 時期"
+      ],
       "verified": true,
       "source": "https://doi.org/10.1039/d4cc05827e",
       "doi": "10.1039/d4cc05827e",
-      "authors": ["Jou-Tsen Ou", "Mercedes K. Taylor"],
+      "authors": [
+        "Jou-Tsen Ou",
+        "Mercedes K. Taylor"
+      ],
       "authorNote": "第一作者（與指導教授二人作）",
       "citationCount": 3,
       "citationsAsOf": "2026-07（Semantic Scholar）",
@@ -233,11 +380,25 @@
       "title": "Self-Assembly Drives Rare-Earth Separations in a Family of M4L4 Cages",
       "detail": "第一作者。ChemRxiv 預印本，博士論文核心成果：五種配體的稀土籠自組裝設計原則。",
       "venue": "ChemRxiv",
-      "tags": ["第一作者", "稀土分離", "M4L4 籠", "預印本"],
+      "tags": [
+        "第一作者",
+        "稀土分離",
+        "M4L4 籠",
+        "預印本"
+      ],
       "verified": true,
       "source": "https://chemrxiv.org/doi/full/10.26434/chemrxiv-2025-1jsd7",
       "doi": "10.26434/chemrxiv-2025-1jsd7",
-      "authors": ["Jou-Tsen Ou", "Min Chieh Yang", "Yu-Chia Chang", "Michael Baptiste", "Garrison Bauer", "Sung-Fu Hung", "Peter Zavalij", "Mercedes Taylor"],
+      "authors": [
+        "Jou-Tsen Ou",
+        "Min Chieh Yang",
+        "Yu-Chia Chang",
+        "Michael Baptiste",
+        "Garrison Bauer",
+        "Sung-Fu Hung",
+        "Peter Zavalij",
+        "Mercedes Taylor"
+      ],
       "authorNote": "第一作者（共 8 位）",
       "citationCount": 0,
       "citationsAsOf": "2026-07（預印本，Semantic Scholar 尚未收錄）",
@@ -254,7 +415,10 @@
       "title": "博士論文口試：Self-Assembly Drives Rare Earth Separation: M4L4 Cages and Polyamide Ionomer Networks",
       "detail": "指導教授 Mercedes Taylor。地點：UMD Chemistry Great Hall。",
       "venue": "University of Maryland",
-      "tags": ["博士口試", "稀土分離"],
+      "tags": [
+        "博士口試",
+        "稀土分離"
+      ],
       "verified": true,
       "source": "https://chem.umd.edu/events/ms-jou-tsen-ou-chemistry-phd-defense-self-assembly-drives-rare-earth-separation-m4l4-cages"
     },
@@ -266,9 +430,40 @@
       "title": "赴日本擔任博士後研究員",
       "detail": "機構與實驗室名稱待補充（公開資料尚查無）。",
       "venue": "日本（機構待補）",
-      "tags": ["博士後", "日本"],
+      "tags": [
+        "博士後",
+        "日本"
+      ],
       "verified": false,
       "source": ""
+    },
+    {
+      "id": "pub-2026-r6c00813",
+      "date": "2026-07-07",
+      "displayDate": "2026",
+      "category": "publication",
+      "title": "Simple Host-Initiated Photofunctionalization of Vinyl-Appended UiO-66",
+      "detail": "由每月自動追蹤（Semantic Scholar）發現，作者序與摘要待人工補充。",
+      "venue": "Chemistry of Materials",
+      "tags": [
+        "自動追蹤待審"
+      ],
+      "verified": false,
+      "source": "https://doi.org/10.1021/acs.chemmater.6c00813"
+    },
+    {
+      "id": "pub-2026-sc02582j",
+      "date": "2026-07-15",
+      "displayDate": "2026",
+      "category": "publication",
+      "title": "Self-assembly drives rare-earth separations in a family of M4L4 cages",
+      "detail": "由每月自動追蹤（Semantic Scholar）發現，作者序與摘要待人工補充。",
+      "venue": "Chemical Science",
+      "tags": [
+        "自動追蹤待審"
+      ],
+      "verified": false,
+      "source": "https://doi.org/10.1039/d6sc02582j"
     }
   ]
 }
