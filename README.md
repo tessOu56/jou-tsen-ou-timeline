@@ -1,5 +1,7 @@
 # Jou-Tsen Ou｜Academic Record（學術歷程時間軸）
 
+Academic family timeline — not a frontend portfolio piece.
+
 展示歐柔岑（Jou-Tsen Ou）學術歷程的靜態網頁：論文、預印本、里程碑、學經歷。
 純 HTML/JS、無需建置。本機瀏覽請起本機伺服器（`python -m http.server`）後開 `index.html`
 （資料改為 fetch 載入，`file://` 直開會被瀏覽器阻擋）。
